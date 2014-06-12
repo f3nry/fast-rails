@@ -1,3 +1,4 @@
 #!/bin/bash
-gem list -i bundler || gem install bundler
-bundle install --standalone --path .bundle
+gem list -i bundler > /dev/null || gem install bundler
+bundle check || bundle install --standalone --path .bundle
+bin/rake db:create db:schema:load
