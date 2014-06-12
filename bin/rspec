@@ -1,3 +1,9 @@
 #!/usr/bin/env ruby --disable-gems --disable-rubyopt
 require_relative '../config/boot'
+
+if ARGV.grep(/models|controllers/).any?
+  STDERR.puts "Loading all of Rails..."
+  require_relative '../config/environment'
+end
+
 load File.expand_path('../exe/rspec', $LOAD_PATH.grep(/rspec-core/).first)
