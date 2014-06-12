@@ -1,0 +1,12 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  database: babble
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database: babble_test

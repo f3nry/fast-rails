@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby --disable-gems
+begin
+  require File.expand_path('../../.bundle/bundler/setup', __FILE__)
+rescue LoadError
+  require 'rubygems'
+  require 'bundler/setup'
+end
+
+load File.expand_path("../exe/rspec", $LOAD_PATH.grep(/rspec-core/).first)
